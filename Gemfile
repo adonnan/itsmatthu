@@ -47,3 +47,31 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# angular js template management
+gem 'angular-rails-templates'
+
+# responder
+gem 'responders'
+
+# angular_rails_csrf - not support for Rails 5.
+# gem 'angular_rails_csrf'
+
+# authentication
+gem 'devise'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular-devise'
+end
+
+# material design
+gem 'rails-angular-material'
+
+# material icons
+gem 'material_icons'
+
+# polymer serial
+# gem 'polymer-rails'
+# gem 'polymer-rails', '~> 1.0.0'
+# gem 'polymer-paper-rails'
+# gem 'polymer-elements-rails'

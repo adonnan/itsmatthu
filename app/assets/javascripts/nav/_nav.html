@@ -1,0 +1,59 @@
+<!-- <div class="collapse navbar-collapse pull-right" ng-controller="NavCtrl">
+  <ul class="nav navbar-nav">
+    <li><a href="#/home">Home</a></li>
+    <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
+    <li ng-hide="signedIn()"><a href="#/register">Register</a></li>
+    <li ng-show="signedIn()"><a href="#/">{{ user.username }}</a></li>
+    <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+  </ul>
+</div> -->
+<style>
+  .nav-tab {
+    margin: 0;
+    min-width: 60px;
+    text-transform: capitalize;
+    font-family: "Roboto Mono";
+  }
+  .nav-logo-text {
+    font-family: "Lobster";
+    font-size: 1.5em;
+  }
+</style>
+<div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Icon">
+      <i class="material-icons">brightness_high</i>
+    </md-button>
+    <h2>
+      <span class="nav-logo-text">Itsmatthu</span>
+    </h2>
+    <span flex></span>
+    <ul class="nav navbar-nav">
+      <md-button class="md-primary nav-tab">
+        <a href="#/home">Home</a>
+      </md-button>
+      <md-button class="md-primary nav-tab">
+        <a href="#/blog">Blog</a>
+      </md-button>
+      <md-button class="md-primary nav-tab">
+        <a href="#/photo">Photo</a>
+      </md-button>
+      <md-button class="md-primary nav-tab">
+        <a href="#/lab">Lab</a>
+      </md-button>
+      <md-button class="md-primary nav-tab">
+        <a href="#/about">About</a>
+      </md-button>
+    </ul>
+    <md-button class="md-icon-button" aria-label="User" ng-hide="signedIn()">
+      <md-tooltip>{{ user.username }}</md-tooltip>
+      <i class="material-icons">face</i>
+    </md-button>
+    <md-button class="md-icon-button" aria-label="User" ng-show="signedIn()">
+      <md-tooltip>Sign In</md-tooltip>
+      <i class="material-icons">account_circle</i>
+    </md-button>
+    <md-button class="md-icon-button" aria-label="Messages">
+      <md-tooltip>Like</md-tooltip>
+      <i class="material-icons">favorite</i>
+    </md-button>
+</div>

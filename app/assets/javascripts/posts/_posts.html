@@ -1,0 +1,43 @@
+<!-- <div class="page-header">
+  <h3>
+    <a ng-show="post.link" href="#/posts/{{post.id}}">
+      {{post.title}}
+    </a>
+    <span ng-hide="post.link">
+      {{post.title}}
+    </span>
+  </h3>
+</div> -->
+
+<md-list>
+  <md-list-item class="md-3-line" ng-repeat="post in posts" md-ink-ripple="#03A9F4" ng-click="enterPost($index)">
+    <div class="md-list-item-text">
+      <h3>{{post.title}}</h3>
+      <h4>{{post.upvotes}}</h4>
+      <h4>{{post.upvotes}}</h4>
+    </div>
+    <md-divider ng-if="!$last"></md-divider>
+  </md-list-item>
+</md-list>
+
+<!-- <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+  <span class="glyphicon glyphicon-thumbs-up"
+    ng-click="incrementUpvotes(comment)"></span>
+  {{comment.upvotes}} - by {{comment.author}}
+  <span style="font-size:20px; margin-left:10px;">
+    {{comment.body}}
+  </span>
+  {{comment.upvotes}} - by {{comment.user.username}}
+</div> -->
+<!-- <form ng-submit="addComment()"
+  style="margin-top:30px;">
+  <h3>Add a new comment</h3>
+
+  <div class="form-group">
+    <input type="text"
+    class="form-control"
+    placeholder="Comment"
+    ng-model="body"></input>
+  </div>
+  <button type="submit" class="btn btn-primary">Post</button>
+</form> -->
