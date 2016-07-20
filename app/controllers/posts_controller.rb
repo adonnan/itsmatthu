@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def hq_cse_show
     puts @@events
-    render json: @@events.reverse
+    render json: @@events
   end
 
   private
