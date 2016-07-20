@@ -40,8 +40,7 @@
     "tag": "v1.2.2",
     "commit": "c2e24ace21effa32d663d8c99266fca02e94a735"
   },
-  "_source": "https://github.com/Hypercubed/angular-marked.git",
+  "_source": "git://github.com/Hypercubed/angular-marked.git",
   "_target": "^1.2.2",
-  "_originalSource": "angular-marked",
-  "_direct": true
+  "_originalSource": "Hypercubed/angular-marked"
 }

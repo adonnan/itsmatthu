@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :upvote]
+  @@events = []
 
   def index
     respond_with Post.all
@@ -18,6 +19,17 @@ class PostsController < ApplicationController
     post.increment!(:upvotes)
 
     respond_with post
+  end
+
+  def hq_cse_tester
+    payload = request.body.read
+    @@events << payload
+    render nothing: true
+  end
+
+  def hq_cse_show
+    puts @@events
+    render json: @@events.reverse
   end
 
   private

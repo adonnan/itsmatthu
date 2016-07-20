@@ -1,4 +1,11 @@
-var app = angular.module('itsmatthu',['ui.router','templates','Devise','ngMaterial']);
+var app = angular.module('itsmatthu',['ui.router','templates','Devise','ngMaterial','ngSanitize','btford.markdown']);
+// app.config(['markdownConverterProvider', function (markdownConverterProvider) {
+//   // options to be passed to Showdown
+//   // see: https://github.com/coreyti/showdown#extensions
+//   markdownConverterProvider.config({
+//     extensions: ['twitter']
+//   });
+// }]);
 app.config([
   '$stateProvider',
   '$urlRouterProvider',

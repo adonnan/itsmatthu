@@ -20,4 +20,7 @@
 //= require angular-aria
 //= require angular-animate
 //= require angular-material
+//= require angular-sanitize
+//= require showdown
+//= require angular-markdown-directive/markdown
 //= require_tree .

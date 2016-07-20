@@ -4,5 +4,6 @@ angular.module('itsmatthu')
   '$stateParams',
   function($scope,$stateParams){
     $scope.content = $stateParams.id;
+    $scope.md = "#markdown"
   }
 ]);
