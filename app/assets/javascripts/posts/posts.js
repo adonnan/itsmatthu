@@ -2,11 +2,95 @@ angular.module('itsmatthu')
 .factory('posts', ['$http',function($http){
   var o = {
     posts: [
-      {title: 'post 1', upvotes: 5},
-      {title: 'post 2', upvotes: 2},
-      {title: 'post 3', upvotes: 15},
-      {title: 'post 4', upvotes: 9},
-      {title: 'post 5', upvotes: 4}
+      {
+        title: 'post 1',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        time: '2016-07-09',
+        upvotes: 5
+      },
+      {
+        title: 'post 2',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 3',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 4',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 5',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 6',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 7',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 8',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 9',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 10',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      },
+      {
+        title: 'post 11',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby'],
+        ref: '',
+        upvotes: 5
+      }
     ]
   };
   o.getAll = function() {

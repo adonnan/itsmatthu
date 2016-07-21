@@ -1,11 +1,4 @@
 var app = angular.module('itsmatthu',['ui.router','templates','Devise','ngMaterial','ngSanitize','btford.markdown']);
-// app.config(['markdownConverterProvider', function (markdownConverterProvider) {
-//   // options to be passed to Showdown
-//   // see: https://github.com/coreyti/showdown#extensions
-//   markdownConverterProvider.config({
-//     extensions: ['twitter']
-//   });
-// }]);
 app.config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -40,6 +33,26 @@ app.config([
         //     return posts.get($stateParams.id);
         //   }]
         // }
+      })
+      .state('photo', {
+        url: '/photo',
+        templateUrl: 'photo/_photo.html',
+        controller: 'PhotoCtrl'
+      })
+      .state('lab', {
+        url: '/lab',
+        templateUrl: 'lab/_lab.html',
+        controller: 'LabCtrl'
+      })
+      .state('about', {
+        url: '/about',
+        templateUrl: 'knowledge/_knowledge.html',
+        controller: 'KnowledgeCtrl'
+      })
+      .state('history', {
+        url: '/history',
+        templateUrl: 'history/_history.html',
+        controller: 'HistoryCtrl'
       })
       .state('login', {
         url: '/login',
