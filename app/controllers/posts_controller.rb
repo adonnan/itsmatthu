@@ -26,10 +26,10 @@ class PostsController < ApplicationController
   def hq_cse_tester
     puts "#1",request.inspect
     payload = request.body.read
-    puts '#2'
-    h = request.headers
-    @@header =+ ("**********"+h.to_s)
-    @@events =+ ("@@@@@@@@@@"+payload.to_s)
+    # puts '#2'
+    # h = request.headers
+    # @@header =+ ("**********"+h.to_s)
+    # @@events =+ ("@@@@@@@@@@"+payload.to_s)
     puts '#3'
     events = CSE::Packer.unpack_events(payload)
     puts "------header------"
