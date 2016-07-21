@@ -32,11 +32,9 @@ class PostsController < ApplicationController
     # @@events =+ ("@@@@@@@@@@"+payload.to_s)
     puts '#3'
     events = CSE::Packer.unpack_events(payload)
-    puts "------header------"
-    puts h.inspect
-    puts "-------body-------"
     puts events.inspect
-    render nothing: true
+    puts "------end------"
+    render nothing: true status: 200
   end
 
   def hq_cse_show
