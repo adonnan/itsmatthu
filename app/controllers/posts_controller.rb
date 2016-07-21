@@ -1,3 +1,4 @@
+require 'cse_ruby_sdk'
 class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :upvote]
   @@events = ''
@@ -23,14 +24,18 @@ class PostsController < ApplicationController
   end
 
   def hq_cse_tester
+    puts "#1",request.inspect
     payload = request.body.read
+    puts '#2'
     h = request.headers
     @@header =+ ("**********"+h.to_s)
     @@events =+ ("@@@@@@@@@@"+payload.to_s)
+    puts '#3'
+    events = CSE::Packer.unpack_events(payload)
     puts "------header------"
     puts h.inspect
     puts "-------body-------"
-    puts payload.inspect
+    puts events.inspect
     render nothing: true
   end
 

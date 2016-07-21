@@ -24,6 +24,11 @@ app.config([
           }]
         }
       })
+      .state('create_post', {
+        url: '/post/create',
+        templateUrl: 'posts/_createPost.html',
+        controller: 'PostCreateCtrl'
+      })
       .state('post', {
         url: '/posts/{id}',
         templateUrl: 'posts/_post.html',

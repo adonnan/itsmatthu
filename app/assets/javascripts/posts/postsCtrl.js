@@ -8,5 +8,8 @@ angular.module('itsmatthu')
     $scope.enterPost = function(id){
       $state.go('post', {'id': id});
     };
+    $scope.gotoPostCreate = function(){
+      $state.go('create_post');
+    };
   }]
 );

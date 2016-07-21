@@ -75,3 +75,7 @@ gem 'material_icons'
 # gem 'polymer-rails', '~> 1.0.0'
 # gem 'polymer-paper-rails'
 # gem 'polymer-elements-rails'
+
+source 'https://artifactory.adskengineer.net/artifactory/api/gems/bim360/' do
+  gem 'cse_ruby_sdk', '2.2.12'
+end
