@@ -24,9 +24,13 @@ class PostsController < ApplicationController
 
   def hq_cse_tester
     payload = request.body.read
-    h = request.header
-    @@header =+ ("**********"+header.to_s)
+    h = request.headers
+    @@header =+ ("**********"+h.to_s)
     @@events =+ ("@@@@@@@@@@"+payload.to_s)
+    puts "------header------"
+    puts h.inspect
+    puts "-------body-------"
+    puts payload.inspect
     render nothing: true
   end
 
