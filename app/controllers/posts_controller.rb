@@ -24,17 +24,17 @@ class PostsController < ApplicationController
   end
 
   def hq_cse_tester
-    puts "#1",request.inspect
+    # puts "#1",request.inspect
     payload = request.body.read
     # puts '#2'
     # h = request.headers
     # @@header =+ ("**********"+h.to_s)
     # @@events =+ ("@@@@@@@@@@"+payload.to_s)
-    puts '#3'
+    puts '-----start-----'
     events = CSE::Packer.unpack_events(payload)
     puts events.inspect
     puts "------end------"
-    render nothing: true status: 200
+    render nothing: true, status: 200
   end
 
   def hq_cse_show
