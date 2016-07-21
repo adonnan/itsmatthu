@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :upvote]
-  @events = ''
-  @header = ''
+  @@events = ''
+  @@header = ''
 
   def index
     respond_with Post.all
@@ -25,16 +25,16 @@ class PostsController < ApplicationController
   def hq_cse_tester
     payload = request.body.read
     h = request.header
-    @header =+ "**********"+header
-    @events =+ "@@@@@@@@@@"+payload
+    @@header =+ ("**********"+header.to_s)
+    @@events =+ ("@@@@@@@@@@"+payload.to_s)
     render nothing: true
   end
 
   def hq_cse_show
     if params[:header].present?
-      render json: @header
+      render json: @@header
     else
-      render json: @events
+      render json: @@events
     end
   end
 
