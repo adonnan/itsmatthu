@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   def hq_cse_tester
     puts '------headers-------'
-    puts request.headers
+    puts request.headers.inspect
     puts '-----header-end-----'
     # puts "#1",request.inspect
     payload = request.body.read
