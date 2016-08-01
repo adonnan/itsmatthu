@@ -1,30 +1,58 @@
-<div layout="row">
+<style>
+.post-content {
+  margin-top: 15px;
+  padding: 15px;
+}
+.post-context {
+  font-size: 1.6rem;
+  letter-spacing: 0.010em;
+  line-height: 1.6em;
+  margin-top: 20px;
+}
+.post-title {
+  font-size: 30px;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+.post-category {
+  color: rgb(63, 81, 181);
+  margin-right: 10px;
+}
+.post-tag {
+  color: #fff;
+  background-color: rgb(63, 81, 181);
+  padding: 0 10px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+</style>
+<div layout="row" class="post-content" id="popupContainer">
   <div flex="0" flex-gt-sm="25"></div>
-  <md-card flex>
-    <md-card-content>
-      <md-content>
-        <div layout="row" layout-align="start start">
-          <div>{{category}} - </div>
-          <div>{{time}}</div>
-        </div>
-        <div>{{title}}</div>
+  
+  <div flex>
+    <div layout="row" layout-align="start start">
+      <div class="post-category">{{category}}</div>
+      <div>{{time | date}}</div>
+    </div>
+    <div class="post-title">{{title}}</div>
 
-        <div layout="row" layout-align="start start">
-          <div ng-repeat="tag in tags">
-            {{tag}}
-          </div>
-        </div>
-        <div>{{ref}}</div>
-        <md-divider></md-divider>
-        <div btf-markdown="content"></div>
+    <div layout="row" layout-align="start start">
+      <div ng-repeat="tag in tags" class="post-tag">
+        {{tag}}
+      </div>
+    </div>
 
-      </md-content>
-      <md-content>
-        <md-input-container>
-          <textarea ng-model="content" rows="10" max-rows="10"></textarea>
-        </md-input-container>
-      </md-content>
-    </md-card-content>
-  </md-card>
-  <div flex="0" flex-gt-sm="25"></div>
+    <div btf-markdown="content" class="post-context" id="post-markdown"></div>
+    <div layout="row">
+      <i class="material-icons">palette</i>
+      <div><a href={{ref}}>{{ref}}</a></div>
+    </div>
+  </div>
+
+  <div flex="0" flex-gt-sm="25">
+    <md-button class="md-primary md-raised" ng-click="editPost()">Edit</md-button>
+    <md-button class="md-warn md-raised" ng-click="confirmDelete()">Delete</md-button>
+  </div>
 </div>

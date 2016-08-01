@@ -32,12 +32,22 @@ app.config([
       .state('post', {
         url: '/posts/{id}',
         templateUrl: 'posts/_post.html',
-        controller: 'PostCtrl'//,
-        // resolve: {
-        //   post: ['$stateParams', 'posts', function($stateParams, posts) {
-        //     return posts.get($stateParams.id);
-        //   }]
-        // }
+        controller: 'PostCtrl',
+        resolve: {
+          post: ['$stateParams', 'posts', function($stateParams, posts) {
+            return posts.get($stateParams.id);
+          }]
+        }
+      })
+      .state('edit_post',{
+        url: '/post/{id}/edit',
+        templateUrl: 'posts/_editPost.html',
+        controller: 'PostEditCtrl',
+        resolve: {
+          post: ['$stateParams', 'posts', function($stateParams, posts) {
+            return posts.get($stateParams.id);
+          }]
+        }
       })
       .state('photo', {
         url: '/photo',

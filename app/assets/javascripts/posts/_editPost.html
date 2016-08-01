@@ -1,0 +1,66 @@
+<style>
+.post-content {
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.post-tag {
+  color: #fff;
+  background-color: rgb(63, 81, 181);
+  padding: 0 10px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+</style>
+<div layout="row" class="post-content">
+  <div flex="0" flex-gt-sm="25"></div>
+  <div flex>
+    <div layout="row" layout-align="start center">
+      <!-- <div flex>{{category}} </div> -->
+      <div>created at:{{time | date}}</div>
+    </div>
+    <div layout="row">
+      <md-input-container flex>
+        <input type="text" ng-model="title"/>
+      </md-input-container>
+      <md-input-container>
+        <label>Category</label>
+        <md-select ng-model="category" required>
+          <md-option value='1'>Category-1sdfs</md-option>
+          <md-option value='2'>Category-2</md-option>
+          <md-option value='3'>Category-3</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+
+    <div layout="row" layout-align="start start">
+      <div ng-repeat="tag in tags" class="post-tag">
+        {{tag}}
+      </div>
+    </div>
+
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="compose">
+          <md-content class="md-padding">
+            <md-input-container class="md-block">
+              <label>Content</label>
+              <textarea ng-model="content" rows="15" md-select-on-focus></textarea>
+            </md-input-container>
+          </md-content>
+        </md-tab>
+        <md-tab label="preview">
+          <md-content class="md-padding">
+            <div btf-markdown="content"></div>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+    <div>{{ref}}</div>
+  </div>
+  <div flex="0" flex-gt-sm="25">
+    <md-button class="md-primary" ng-click="cancelEdit()">cancel</md-button>
+    <md-button class="md-primary md-raised" ng-click="savePost()">save</md-button>
+  </div>
+</div>

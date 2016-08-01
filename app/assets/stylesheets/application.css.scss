@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap
+ *= require angular-material
+ *= require material_icons
+ *= require_tree .
+ *= require_self
+ */
+
+@font-face {
+  font-family: "Arkifakt";
+  src: url('/assets/Artifakt Legend Regular.ttf');
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url('/assets/Lobster-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url('/assets/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url('/assets/RobotoMono-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url('/assets/RobotoSlab-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: url('/assets/NotoSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  src: url('/assets/NotoSerif-Regular.ttf');
+}
+
+.post-context {
+  pre {
+    border: 0;
+    border-left: solid 5px #ccc;
+    border-radius: 0;
+  }
+
+  p {
+    code {
+      font-size: 1.4rem;
+      color: rgb(63, 81, 181);
+    }
+  }
+
+  blockquote {
+    font-size: 1.6rem;
+    border-left: solid 5px rgb(63, 81, 181);
+  }
+}

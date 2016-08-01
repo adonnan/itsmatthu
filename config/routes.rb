@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
-  resources :posts, only: [:create, :index, :show] do
+  resources :posts do
     resources :comments, only: [:show, :create] do
       member do
         put '/upvote' => 'comments#upvote'

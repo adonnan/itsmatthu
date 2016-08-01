@@ -5,6 +5,7 @@ angular.module('itsmatthu')
   function($scope, Auth){
     $scope.signedIn = Auth.isAuthenticated;
     $scope.logout = Auth.logout;
+    $scope.currentNavItem = 'page1';
 
     Auth.currentUser().then(function (user){
       $scope.user = user;

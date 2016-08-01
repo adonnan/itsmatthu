@@ -5,15 +5,16 @@
   <link ref='icon'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <%= stylesheet_link_tag('application','//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto Mono') %>
-  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag('application','https://fonts.googleapis.com/css?family=Lobster&subset=all')%>
   <%= csrf_meta_tags %>
 </head>
+<style>
+body {
+  font-family: 'Arkifakt';
+}
+</style>
 <body ng-app="itsmatthu" style='height:100%' ng-controller=MainCtrl>
   <md-toolbar  md-scroll-shrink ng-if='true' class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
-  <md-content flex style="height:100%;background-color:#eee;">
+  <md-content flex style="height:100%;">
     <ui-view></ui-view>
   </md-content>
 </body>

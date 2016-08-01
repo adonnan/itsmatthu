@@ -3,7 +3,16 @@ angular.module('itsmatthu')
   var o = {
     posts: [
       {
-        title: 'post 1',
+        title: 'How to Get Away with Murder',
+        category: 'technology',
+        content: 'try me',
+        tags: ['tag','ruby','shows'],
+        ref: '',
+        time: '2016-07-09',
+        upvotes: 5
+      },
+      {
+        title: 'Gotham',
         category: 'technology',
         content: 'try me',
         tags: ['tag','ruby'],
@@ -12,51 +21,48 @@ angular.module('itsmatthu')
         upvotes: 5
       },
       {
-        title: 'post 2',
+        title: 'How I Met Your Mother',
         category: 'technology',
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
+        time: '2016-07-09',
         upvotes: 5
       },
       {
-        title: 'post 3',
+        title: 'Integrate Angular with Rails 5',
         category: 'technology',
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
+        time: '2016-07-09',
         upvotes: 5
       },
       {
-        title: 'post 4',
+        title: 'Game of Thrones',
         category: 'technology',
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
+        time: '2016-07-09',
         upvotes: 5
       },
       {
-        title: 'post 5',
+        title: 'Arrow',
         category: 'technology',
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
+        time: '2016-07-09',
         upvotes: 5
       },
       {
-        title: 'post 6',
+        title: 'Flash',
         category: 'technology',
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
-        upvotes: 5
-      },
-      {
-        title: 'post 7',
-        category: 'technology',
-        content: 'try me',
-        tags: ['tag','ruby'],
-        ref: '',
+        time: '2016-07-09',
         upvotes: 5
       },
       {
@@ -65,6 +71,7 @@ angular.module('itsmatthu')
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
+        time: '2016-07-09',
         upvotes: 5
       },
       {
@@ -73,6 +80,7 @@ angular.module('itsmatthu')
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
+        time: '2016-07-09',
         upvotes: 5
       },
       {
@@ -81,6 +89,7 @@ angular.module('itsmatthu')
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
+        time: '2016-07-09',
         upvotes: 5
       },
       {
@@ -89,15 +98,15 @@ angular.module('itsmatthu')
         content: 'try me',
         tags: ['tag','ruby'],
         ref: '',
+        time: '2016-07-09',
         upvotes: 5
       }
     ]
   };
   o.getAll = function() {
-    // return $http.get('/posts.json').success(function(data){
-    //   angular.copy(data, o.posts);
-    // });
-    return o.posts;
+    return $http.get('/posts.json').success(function(data){
+      angular.copy(data, o.posts);
+    });
   };
   o.get = function(id) {
     return $http.get('/posts/' + id + '.json').then(function(res){
@@ -105,9 +114,15 @@ angular.module('itsmatthu')
     });
   };
   o.create = function(post) {
-    return $http.post('/posts.json', post).success(function(data){
-      o.posts.push(data);
-    });
+    return $http.post('/posts.json', post);
+  };
+  o.update = function(post) {
+    var post_id = post.id;
+    delete post['id'];
+    return $http.put('/posts/'+post_id +'.json', post);
+  };
+  o.delete = function(id) {
+    return $http.delete('/posts/'+id+'.json');
   };
   o.upvote = function(post) {
     return $http.put('/posts/' + post.id + '/upvote.json')
