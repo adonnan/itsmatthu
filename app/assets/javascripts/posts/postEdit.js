@@ -19,9 +19,10 @@ angular.module('itsmatthu')
       posts.update({
         id: post.id,
         title: $scope.title,
-        tags: $scope.tags,
+        tags: $scope.tags.join(),
         link: $scope.ref,
-        content: $scope.content
+        content: $scope.content,
+        category: $scope.category
       }).then(function(response){
         $state.go('post', {id: post.id});
       },function(error){});

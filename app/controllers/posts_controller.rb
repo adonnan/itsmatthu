@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # @@header = ''
 
   def index
-    respond_with Post.all
+    respond_with Post.all.order created_at: :desc
   end
 
   def create
@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
+    puts post_params.inspect
     post.update!(post_params)
     respond_with post
   end

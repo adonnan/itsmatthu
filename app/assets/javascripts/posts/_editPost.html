@@ -12,16 +12,36 @@
   border-radius: 2px;
 }
 
+textarea {
+  width:100%;
+  border:none;
+  background:none;
+}
+textarea:focus {
+  border:none;
+  outline: none;
+  resize: none;
+}
+.post-title-category-line {
+  height: 60px;
+}
+.post-tags-links-line {
+  height: 60px;
+}
+.date {
+  color: rgb(63, 81, 181);
+}
+
 </style>
 <div layout="row" class="post-content">
   <div flex="0" flex-gt-sm="25"></div>
   <div flex>
-    <div layout="row" layout-align="start center">
-      <!-- <div flex>{{category}} </div> -->
-      <div>created at:{{time | date}}</div>
+    <div layout="row" layout-align="start center" style="margin-bottom:10px">
+      <div>created at: &nbsp;<span class="date">{{time | date}}<span></div>
     </div>
-    <div layout="row">
+    <div layout="row" class="post-title-category-line">
       <md-input-container flex>
+        <label>Title</label>
         <input type="text" ng-model="title"/>
       </md-input-container>
       <md-input-container>
@@ -34,20 +54,19 @@
       </md-input-container>
     </div>
 
-    <div layout="row" layout-align="start start">
-      <div ng-repeat="tag in tags" class="post-tag">
-        {{tag}}
-      </div>
+    <div layout="row" class="post-tags-links-line">
+      <md-chips ng-model="tags" placeholder="Enter a tag" secondary-placeholder="+tags" flex="60"></md-chips>
+      <md-input-container flex style="margin-top:17px">
+        <label>Reference</label>
+        <input type="text" ng-model="ref"/>
+      <md-input-container>
     </div>
 
     <md-content>
       <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="compose">
           <md-content class="md-padding">
-            <md-input-container class="md-block">
-              <label>Content</label>
-              <textarea ng-model="content" rows="15" md-select-on-focus></textarea>
-            </md-input-container>
+            <textarea ng-model="content" rows="19"></textarea>
           </md-content>
         </md-tab>
         <md-tab label="preview">
@@ -59,7 +78,7 @@
     </md-content>
     <div>{{ref}}</div>
   </div>
-  <div flex="0" flex-gt-sm="25">
+  <div flex="0" flex-gt-sm="25" layout="row" layout-align="center start">
     <md-button class="md-primary" ng-click="cancelEdit()">cancel</md-button>
     <md-button class="md-primary md-raised" ng-click="savePost()">save</md-button>
   </div>

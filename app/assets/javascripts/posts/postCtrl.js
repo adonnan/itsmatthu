@@ -41,6 +41,9 @@ angular.module('itsmatthu')
     $scope.editPost = function(){
       $state.go('edit_post', {'id': $scope.id});
     };
+    $scope.backToList = function(){
+      $state.go('blog');
+    };
     $scope.confirmDelete = function(ev){
       var confirm = $mdDialog.confirm()
         .title('!Delete Post!')
