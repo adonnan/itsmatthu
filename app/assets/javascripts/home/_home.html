@@ -1,21 +1,14 @@
 <style>
-.main-content-1 {
-  background-color: #eee;
-  height: 505px;
+.main-content {
+  background-color: #fff;
+  width: 100%;
 }
 .city {
-  height: 75px;
-  width: 100%;
-  margin-top: 115px;
-  float: left;
-}
-.main-content-2 {
-  background-color: #E3F2FD;
-  height: 505px;
-}
-.main-content-3 {
-  background-color: #fff;
-  height: 505px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
 }
 .card-media {
   background-color: #000;
@@ -27,11 +20,11 @@
 }
 .image-frame {
   margin-left: 25%;
-  margin-top: 100px;
+  margin-top: 150px;
   float: left;
 }
 .text-frame {
-  margin-top: 100px;
+  margin-top: 150px;
   margin-left: 40px;
   float: left;
   font-size: 16px;
@@ -57,8 +50,12 @@
 .blue-divider {
   border-top-color: red;
 }
+#shore {
+  opacity: 0.1;
+  filter: alpha(opacity=20);
+}
 </style>
-<md-content class="main-content-1">
+<div class="main-content">
   <div class="image-frame">
     <img src="/profile.png" alt="oops! No image" class="round-selfie"/>
   </div>
@@ -67,20 +64,12 @@
     <md-divider ng-class="blue-divider"></md-divider>
     <p></p>
     <p><span class="para-1">My Name is <a href="#/home" class="name-link"><span class="my-name">Matt Hu</span></a>,</span></p>
-    <p><span class="para-2">I am a software developer & a tv shows master.</span></p>
+    <p><span class="para-2">I am a software developer.</span></p>
     <p><span class="para-3">And I like music, movies, or everything new.</span></p>
     <p><span class="para-3">I am always a big dreamer & learner</span></p>
     <p><span class="para-3">Everything about me is revealing ...</span></p>
   </div>
   <div class="city">
-    <svg height="75" width="1440">
-      <path fill="#ddd" d="M0 5 L0 80 L0 80 L1440 80 L1440 35 L1425 35 L1425 60 L1410 60 L1410 5 L1385 5 L1385 45 L1380 45 L1380 20 L1355 20 L1355 70 L1335 70 L1335 30 L1320 30 L1320 45 L1315 45 L1315 10 L1255 10 L1255 20 L1225 20 L1225 30 L1205 30 L1205 3 L1175 3 L1175 38 L1155 38 L1155 50 L1125 50 L1125 28 L1100 28 L1100 20 L1065 20 L1065 55 L1035 55 L1035 45 L1025 45 L1025 20 L995 20 L995 15 L960 15 L960 40 L905 40 L905 55 L885 55 L885 25 L865 25 L865 40 L838 40 L838 0 L815 0 L815 20 L803 20 L803 60 L765 60 L765 38 L750 38 L750 25 L733 25 L733 35 L718 35 L718 5 L705 5 L705 80 L705 5 L680 5 L680 45 L675 45 L675 20 L650 20 L650 70 L630 70 L630 30 L615 30 L615 45 L610 45 L610 10 L550 10 L550 20 L520 20 L520 30 L500 30 L500 3 L 470 3 L470 38 L455 38 L455 50 L420 50 L420 28 L395 28 L395 20 L360 20 L360 55 L335 55 L335 45 L325 45 L325 20 L290 20 L290 15 L255 15 L255 40 L200 40 L200 55 L180 55 L180 25 L160 25 L160 40 L133 40 L133 0 L110 0 L110 20 L98 20 L98 60 L60 60 L60 38 L45 38 L45 25 L28 25 L28 35 L13 35 L13 5 L0 5 Z" />
-      Sorry, your browser does not support inline SVG.
-    </svg>
+    <img src="city.png" width="100%" id="shore"/>
   </div>
-</md-content>
-<md-divider></md-divider>
-<md-content flex class="main-content-2">
-</md-content>
-<md-content flex class="main-content-3">
-</md-content>
+</div>

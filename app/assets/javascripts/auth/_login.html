@@ -1,13 +1,27 @@
-<div class="page-header">
-  <h1>Log In</h1>
+<style>
+.login-dialog {
+  margin-top: 100px;
+}
+</style>
+<div layout="row" class="login-dialog">
+  <div flex="0" flex-gt-sm="60"></div>
+  <div flex>
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Log In</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content layout="column">
+        <md-input-container>
+          <input type="text" placeholder="Emails" ng-model="user.email">
+        </md-input-container>
+        <md-input-container>
+          <input type="password" placeholder="Password" ng-model="user.password">
+        </md-input-container>
+        <md-button class="md-primary md-raised" ng-click="login()">Log In</md-button>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div flex="0" flex-gt-sm="15"></div>
 </div>
-
-<form ng-submit="login()">
-  <div class="input-group">
-    <input type="email" class="form-control" placeholder="Email" ng-model="user.email">
-  </div>
-  <div class="input-group">
-    <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
-  </div>
-  <input type="submit" class="btn btn-default" value="Log In">
-</form>

@@ -1,4 +1,8 @@
 <style>
+.list-content {
+  margin-top: 15px;
+  padding: 15px;
+}
 .list-item-category {
   height: 32px;
   line-height: 32px;
@@ -20,7 +24,7 @@
   font-size: 12px;
 }
 </style>
-<div layout="row">
+<div layout="row" class="list-content">
   <div flex="0" flex-gt-sm="25"></div>
   <div flex>
     <!-- <div>Blog</div>
@@ -32,9 +36,8 @@
           <div class="list-item-title">{{post.title}}</div>
           <div layout="row">
             <!-- <i class="material-icons">local_offer</i> -->
-            <div ng-repeat="tag in post.tags" class="list-item-tag">
+            <div ng-repeat="tag in post.tags track by $index" class="list-item-tag">
               {{tag}}
-              <!-- <span ng-if="!$last">,&nbsp;</span> -->
             </div>
             <div flex></div>
             <div class="list-item-time">{{post.created_at | date}}</div>
@@ -44,9 +47,7 @@
       </md-list-item>
     </md-list>
   </div>
-  <div flex="0" flex-gt-sm="25">
-    <md-button class="md-fab md-fab-top-right" ng-click="gotoPostCreate()">
-      <i class="material-icons">add_circle</i>
-    </md-button>
+  <div flex="0" flex-gt-sm="25" layout="row" layout-align="center start">
+    <md-button class="md-primary md-raised" ng-click="gotoPostCreate()" ng-show="isLogined">Create</md-button>
   </div>
 </div>

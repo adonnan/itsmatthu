@@ -1,5 +1,9 @@
 angular.module('itsmatthu')
-.controller('MainCtrl',['$scope','posts', function($scope, posts){
+.controller('MainCtrl',[
+  '$scope',
+  'posts',
+  '$mdToast',
+  function($scope, posts, $mdToast){
   $scope.name = 'Itsmatthu';
   $scope.posts = posts.posts;
   $scope.posts.push({
@@ -11,16 +15,15 @@ angular.module('itsmatthu')
       {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
     ]
   });
-  // $scope.addPost = function(){
-  //   if(!$scope.title || $scope.title === '') { return; }
-  //   $scope.posts.push({
-  //     title: $scope.title,
-  //     link: $scope.link,
-  //     upvotes: 0
-  //   });
-  //   $scope.title = '';
-  //   $scope.link = '';
-  // };
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .textContent('Toast Message')
+      .position('bottom right')
+      .hideDelay(3000)
+      .parent(angular.element('.main-content'))
+    );
+  };
   $scope.addPost = function(){
     if(!$scope.title || $scope.title === '') { return; }
     posts.create({

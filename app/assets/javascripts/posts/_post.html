@@ -35,32 +35,31 @@
 
   <div flex>
     <div layout="row" layout-align="start start">
-      <div class="post-category">{{category}}</div>
       <div>{{time | date}}</div>
       <div flex></div>
       <div layout="row" layout-align="start start">
-        <div ng-repeat="tag in tags" class="post-tag">
-          {{tag}}
-        </div>
+        <i class="material-icons">turned_in</i>
+        <i class="material-icons">share</i>
       </div>
     </div>
     <div class="post-title">{{title}}</div>
-
-    <!-- <div layout="row" layout-align="start start">
+    <div layout="row">
       <div ng-repeat="tag in tags" class="post-tag">
         {{tag}}
       </div>
-    </div> -->
-
+      <div flex></div>
+      <div>{{category}}</div>
+    </div>
     <div btf-markdown="content" class="post-context" id="post-markdown"></div>
     <div layout="row" ng-if="ref">
       <i class="material-icons">palette</i>
+      &nbsp;Reference：
       <div><a href={{ref}}>{{ref}}</a></div>
     </div>
   </div>
 
   <div flex="0" flex-gt-sm="25" layout="row" layout-align="center start">
-    <md-button class="md-primary md-raised" ng-click="editPost()">Edit</md-button>
-    <md-button class="md-warn md-raised" ng-click="confirmDelete()">Delete</md-button>
+    <md-button class="md-primary md-raised" ng-click="editPost()" ng-show="isLoggedin()">Edit</md-button>
+    <md-button class="md-warn md-raised" ng-click="confirmDelete()" ng-show="isLoggedin()">Delete</md-button>
   </div>
 </div>

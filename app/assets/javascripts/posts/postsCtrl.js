@@ -3,7 +3,8 @@ angular.module('itsmatthu')
   '$scope',
   '$state',
   'posts',
-  function($scope, $state, posts){
+  'Auth',
+  function($scope, $state, posts, Auth){
     $scope.posts = posts.posts;
     $scope.enterPost = function(id){
       $state.go('post', {'id': id});
@@ -11,5 +12,6 @@ angular.module('itsmatthu')
     $scope.gotoPostCreate = function(){
       $state.go('create_post');
     };
+    $scope.isLogined = Auth.isAuthenticated();
   }]
 );

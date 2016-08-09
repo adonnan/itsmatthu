@@ -3,9 +3,11 @@ angular.module('itsmatthu')
   '$scope',
   '$state',
   'Auth',
-  function($scope, $state, Auth){
+  '$rootScope',
+  function($scope, $state, Auth, $rootScope){
     $scope.login = function() {
       Auth.login($scope.user).then(function(){
+        $rootScope.$emit('login',{name: 'admin'});
         $state.go('home');
       });
     };

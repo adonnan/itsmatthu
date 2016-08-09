@@ -1,65 +1,51 @@
-<div layout="row">
+<style>
+.post-create-content {
+  margin-top: 15px;
+  padding: 15px;
+}
+</style>
+<div layout="row" class="post-create-content">
   <div flex="0" flex-gt-sm="25"></div>
-  <md-card flex>
-    <md-card-actions layout="row" layout-align="end center">
-      <md-button class="md-primary" ng-click="cancelCreate()">cancel</md-button>
-      <md-button class="md-primary md-raised" ng-click="postCreate()">save</md-button>
-    </md-card-actions>
-    <md-divider></md-divider>
-    <md-card-content>
-      <md-content>
-        <div layout-gt-sm="row">
-          <md-input-container flex-gt-xs>
-            <input type="text" placeholder="Title" ng-model="title">
+  <div flex>
+    <div layout-gt-sm="row">
+      <md-input-container flex-gt-xs>
+        <input type="text" placeholder="Title" ng-model="title">
+      </md-input-container>
+      <md-input-container>
+        <label>Category</label>
+        <md-select ng-model="category" required>
+          <md-option value='1'>Category-1sdfs</md-option>
+          <md-option value='2'>Category-2</md-option>
+          <md-option value='3'>Category-3</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-chips ng-model="tags" placeholder="Enter a tag" secondary-placeholder="+tags" flex-gt-xs>
+      </md-chips>
+      <md-input-container flex style="margin-top:17px">
+        <label>Reference</label>
+        <input type="text" ng-model="ref"/>
+      <md-input-container>
+    </div>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="compose">
+        <md-content class="md-padding">
+          <md-input-container class="md-block">
+            <label>Content</label>
+            <textarea ng-model="post" rows="15" md-select-on-focus></textarea>
           </md-input-container>
-          <md-input-container>
-            <label>Category</label>
-            <md-select ng-model="category" required>
-              <md-option value='1'>Category-1sdfs</md-option>
-              <md-option value='2'>Category-2</md-option>
-              <md-option value='3'>Category-3</md-option>
-            </md-select>
-          </md-input-container>
-        </div>
-        <div layout-gt-sm="row">
-          <md-chips ng-model="tags" placeholder="Enter a tag" secondary-placeholder="+tags" flex-gt-xs>
-          </md-chips>
-          <md-switch ng-model="privacy">
-            Public
-          </md-switch>
-        </div>
-        <!-- <div layout-gt-sm="row">
-          <md-switch ng-model="hasReference" class="md-primary" flex-xs>
-            reference
-          </md-switch>
-          <md-input-container ng-show="hasReference" flex-gt-xs> -->
-            <!-- <label>input reference</label> -->
-            <!-- <i class="material-icons">favorite</i> -->
-            <!-- <input ng-model="user.phone" type="text">
-          </md-input-container>
-        </div> -->
-      </md-content>
-    </md-card-content>
-    <!-- <md-divider></md-divider> -->
-    <md-card-content>
-      <md-content>
-        <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab label="compose">
-            <md-content class="md-padding">
-              <md-input-container class="md-block">
-                <label>Content</label>
-                <textarea ng-model="post" rows="15" md-select-on-focus></textarea>
-              </md-input-container>
-            </md-content>
-          </md-tab>
-          <md-tab label="preview">
-            <md-content class="md-padding">
-              <div btf-markdown="post"></div>
-            </md-content>
-          </md-tab>
-        </md-tabs>
-      </md-content>
-    </md-card-content>
-  </md-card>
-  <div flex="0" flex-gt-sm="25"></div>
+        </md-content>
+      </md-tab>
+      <md-tab label="preview">
+        <md-content class="md-padding">
+          <div btf-markdown="post"></div>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </div>
+  <div flex="0" flex-gt-sm="25" layout="row" layout-align="center start">
+    <md-button class="md-primary" ng-click="cancelCreate()">cancel</md-button>
+    <md-button class="md-primary md-raised" ng-click="postCreate()">save</md-button>
+  </div>
 </div>

@@ -16,6 +16,7 @@ textarea {
   width:100%;
   border:none;
   background:none;
+  resize: none;
 }
 textarea:focus {
   border:none;
@@ -47,7 +48,7 @@ textarea:focus {
       <md-input-container>
         <label>Category</label>
         <md-select ng-model="category" required>
-          <md-option value='1'>Category-1sdfs</md-option>
+          <md-option value='1'>Category-1</md-option>
           <md-option value='2'>Category-2</md-option>
           <md-option value='3'>Category-3</md-option>
         </md-select>
@@ -76,7 +77,6 @@ textarea:focus {
         </md-tab>
       </md-tabs>
     </md-content>
-    <div>{{ref}}</div>
   </div>
   <div flex="0" flex-gt-sm="25" layout="row" layout-align="center start">
     <md-button class="md-primary" ng-click="cancelEdit()">cancel</md-button>
