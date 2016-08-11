@@ -51,10 +51,10 @@ class PostsController < ApplicationController
     events = CSE::Packer.unpack_events(payload)
     # puts events.inspect
     events.each do |event|
-      puts '2', event[:header]['category']
-      puts event[:body]['profile']['firstName']
-      puts event[:body]['profile']['lastName']
-      puts event[:body]['emailId']
+      puts '#', event[:header]['category']
+      puts '1', event[:body][:profile]['firstName']
+      puts '2', event[:body][:profile][:lastName]
+      puts '3',event[:body][:emailId]
       puts event[:body]['professionalInformation']['jobTitle']
     end
     puts "------end------"
