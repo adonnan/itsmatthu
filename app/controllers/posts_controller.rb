@@ -48,8 +48,12 @@ class PostsController < ApplicationController
     # @@header =+ ("**********"+h.to_s)
     # @@events =+ ("@@@@@@@@@@"+payload.to_s)
     puts '-----start-----'
-    events = CSE::Packer.unpack_events(payload)
+    # events = CSE::Packer.unpack_events(payload)
     puts events.inspect
+    events.each do |event|
+      puts '1', event[:header][:category]
+      puts '2', event[:header]['category']
+    end
     puts "------end------"
     render nothing: true, status: 200
   end
