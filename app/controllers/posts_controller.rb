@@ -57,8 +57,7 @@ class PostsController < ApplicationController
       body = JSON.parse(event[:body])
       puts '5', body.inspect
       puts '6', body.class
-      puts '3', body['professionalInformation']['jobTitle']
-      puts '4', body[:professionalInformation][:jobTitle]
+      puts '3', body['profile']['firstName']
     end
     puts "------end------"
     render nothing: true, status: 200
