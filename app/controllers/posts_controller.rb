@@ -52,9 +52,9 @@ class PostsController < ApplicationController
     # puts events.inspect
     events.each do |event|
       puts '#', event[:header]['category']
-      puts '1', event[:body][:profile]['firstName']
-      puts '2', event[:body][:profile][:lastName]
-      puts '3',event[:body][:emailId]
+      puts '1', event[:body].inspect
+      # puts '2', event[:body][:profile][:lastName]
+      # puts '3',event[:body][:emailId]
       puts event[:body]['professionalInformation']['jobTitle']
     end
     puts "------end------"
