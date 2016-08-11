@@ -55,6 +55,8 @@ class PostsController < ApplicationController
       puts '1', event[:body].inspect
       # puts '2', event[:body][:profile][:lastName]
       body = JSON.parse(event[:body])
+      puts '5', body.inspect
+      puts '6', body.class
       puts '3', body['professionalInformation']['jobTitle']
       puts '4', body[:professionalInformation][:jobTitle]
     end
