@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
   def hq_cse_tester
     puts '------headers-------'
-    puts request.headers.inspect
+    # puts request.headers.inspect
     puts '-----header-end-----'
     # puts "#1",request.inspect
     payload = request.body.read
@@ -48,8 +48,8 @@ class PostsController < ApplicationController
     # @@header =+ ("**********"+h.to_s)
     # @@events =+ ("@@@@@@@@@@"+payload.to_s)
     puts '-----start-----'
-    # events = CSE::Packer.unpack_events(payload)
-    puts events.inspect
+    events = CSE::Packer.unpack_events(payload)
+    # puts events.inspect
     events.each do |event|
       puts '1', event[:header][:category]
       puts '2', event[:header]['category']
