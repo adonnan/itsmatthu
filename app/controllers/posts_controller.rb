@@ -54,7 +54,7 @@ class PostsController < ApplicationController
       puts '#', event[:header]['category']
       puts '1', event[:body].inspect
       # puts '2', event[:body][:profile][:lastName]
-      # puts '3',event[:body][:emailId]
+      puts '3',event[:body][:emailId]
       puts event[:body]['professionalInformation']['jobTitle']
     end
     puts "------end------"
