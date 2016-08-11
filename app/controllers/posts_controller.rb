@@ -51,8 +51,11 @@ class PostsController < ApplicationController
     events = CSE::Packer.unpack_events(payload)
     # puts events.inspect
     events.each do |event|
-      puts '1', event[:header][:category]
       puts '2', event[:header]['category']
+      puts event[:body]['profile']['firstName']
+      puts event[:body]['profile']['lastName']
+      puts event[:body]['emailId']
+      puts event[:body]['professionalInformation']['jobTitle']
     end
     puts "------end------"
     render nothing: true, status: 200
