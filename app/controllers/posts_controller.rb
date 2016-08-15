@@ -38,9 +38,9 @@ class PostsController < ApplicationController
   end
 
   def hq_cse_tester
-    puts '------headers-------'
+    # puts '------headers-------'
     # puts request.headers.inspect
-    puts '-----header-end-----'
+    # puts '-----header-end-----'
     # puts "#1",request.inspect
     payload = request.body.read
     # puts '#2'
@@ -51,15 +51,11 @@ class PostsController < ApplicationController
     events = CSE::Packer.unpack_events(payload)
     # puts events.inspect
     events.each do |event|
-      puts '#', event[:header]['category']
-      puts '1', event[:body].inspect
-      # puts '2', event[:body][:profile][:lastName]
-      body = JSON.parse(event[:body])
-      puts '5', body.inspect
-      puts '6', body.class
-      puts '3', body['profile']['firstName']
+      if evnent[:header]['category'] == 'identity.tenant.user.add'
+        puts event[:body].inspect
+      end
     end
-    puts "------end------"
+    puts '------end------'
     render nothing: true, status: 200
   end
 
