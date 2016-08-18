@@ -47,6 +47,7 @@ class PostsController < ApplicationController
     # h = request.headers
     # @@header =+ ("**********"+h.to_s)
     # @@events =+ ("@@@@@@@@@@"+payload.to_s)
+    puts request.headers['x-ads-cse-checkpoint']
     puts '-----start-----'
     events = CSE::Packer.unpack_events(payload)
     # puts events.inspect
