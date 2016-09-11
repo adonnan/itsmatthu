@@ -5,7 +5,8 @@ angular.module('itsmatthu')
   '$state',
   'posts',
   'post',
-  function($scope, $stateParams, $state, posts, post){
+  '$rootScope',
+  function($scope, $stateParams, $state, posts, post, $rootScope){
     $scope.tags = post.tags.toString().split(',');
     $scope.title = post.title;
     $scope.category = post.category;

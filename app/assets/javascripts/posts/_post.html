@@ -1,45 +1,18 @@
-<style>
-.post-content {
-  margin-top: 15px;
-  padding: 15px;
-}
-.post-context {
-  font-size: 1.6rem;
-  letter-spacing: 0.010em;
-  line-height: 1.6em;
-  margin-top: 20px;
-}
-.post-title {
-  font-size: 30px;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-  margin-top:20px;
-  margin-bottom: 20px;
-}
-.post-category {
-  color: rgb(63, 81, 181);
-  margin-right: 10px;
-}
-.post-tag {
-  color: #fff;
-  background-color: rgb(63, 81, 181);
-  padding: 0 10px;
-  margin-right: 5px;
-  border-radius: 2px;
-}
-</style>
+<md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
 <div layout="row" class="post-content" id="popupContainer">
-  <div flex="0" flex-gt-sm="25" layout="row" layout-align="center start">
-    <md-button class="md-primary" ng-click="backToList()">Back to List</md-button>
-  </div>
+  <div flex="0" flex-gt-sm="25" layout="row" layout-align="center start"></div>
 
   <div flex>
     <div layout="row" layout-align="start start">
       <div>{{time | date}}</div>
       <div flex></div>
       <div layout="row" layout-align="start start">
-        <i class="material-icons">turned_in</i>
-        <i class="material-icons">share</i>
+        <md-button class="md-icon-button md-accent">
+          <i class="material-icons">turned_in</i>
+        </md-button>
+        <md-button class="md-icon-button md-accent">
+          <i class="material-icons">share</i>
+        </md-button>
       </div>
     </div>
     <div class="post-title">{{title}}</div>

@@ -1,41 +1,13 @@
-<style>
-.list-content {
-  margin-top: 15px;
-  padding: 15px;
-}
-.list-item-category {
-  height: 32px;
-  line-height: 32px;
-  color: rgb(63, 81, 181);
-  font-size: 12px;
-}
-.list-item-title {
-  font-size: 20px;
-  font-weight: normal;
-  height: 32px;
-  line-height: 32px;
-}
-<!-- .list-item-tag {
-  height: 30px;
-  line-height: 30px;
-  font-size: 12px;
-} -->
-.list-item-time {
-  font-size: 12px;
-}
-</style>
+<md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
 <div layout="row" class="list-content">
   <div flex="0" flex-gt-sm="25"></div>
   <div flex>
-    <!-- <div>Blog</div>
-    <md-divider></md-divider> -->
     <md-list>
       <md-list-item class="md-3-line" ng-repeat="post in posts" md-ink-ripple="#03A9F4" ng-click="enterPost(post.id)">
         <div class="md-list-item-text">
           <div class="list-item-category">{{post.category}}</div>
           <div class="list-item-title">{{post.title}}</div>
           <div layout="row">
-            <!-- <i class="material-icons">local_offer</i> -->
             <div ng-repeat="tag in post.tags track by $index" class="list-item-tag">
               {{tag}}
             </div>

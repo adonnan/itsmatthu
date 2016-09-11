@@ -2,22 +2,14 @@
 <html>
 <head>
   <title>itsmatthu</title>
-  <!-- <link ref='shortcut icon' href="/planet.ico"> -->
   <link type="image/x-icon" rel="shortcut icon" href="/planet.ico" />
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <style>
-body {
-  font-family: 'Arkifakt';
-}
 </style>
-<body ng-app="itsmatthu" style='height:100%' ng-controller=MainCtrl>
-  <md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
-  <!-- <md-content flex style="height:100%;"> -->
-    <ui-view></ui-view>
-    <!-- <div style="height:50px;"></div> -->
-  <!-- </md-content> -->
+<body ng-app="itsmatthu" ng-controller='MainCtrl'>
+  <ui-view></ui-view>
 </body>
 </html>

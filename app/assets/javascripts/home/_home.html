@@ -2,6 +2,7 @@
 .main-content {
   background-color: #fff;
   width: 100%;
+  height: 100%;
 }
 .city {
   position: absolute;
@@ -54,8 +55,54 @@
   opacity: 0.1;
   filter: alpha(opacity=20);
 }
+.drop {
+  background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.6))  );
+  background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
+	width:1px;
+	height:89px;
+	position: absolute;
+	bottom:200px;
+	-webkit-animation: fall .63s linear infinite;
+  -moz-animation: fall .63s linear infinite;
+
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+	to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+	to {margin-top:900px;}
+}
 </style>
+<script>
+  // number of drops created.
+  var nbDrop = 858;
+
+  // function to generate a random number range.
+  function randRange( minNum, maxNum) {
+    return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+  }
+
+  // function to generate drops
+  function createRain() {
+
+  	for( i=1;i<nbDrop;i++) {
+  	var dropLeft = randRange(0,1600);
+  	var dropTop = randRange(-1000,1400);
+
+  	$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
+  	$('#drop'+i).css('left',dropLeft);
+  	$('#drop'+i).css('top',dropTop);
+  	}
+
+  }
+  // Make it rain
+  createRain();
+</script>
 <div class="main-content">
+  <md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
+  <!-- <section class="rain"></section> -->
   <div class="image-frame">
     <img src="/profile.png" alt="oops! No image" class="round-selfie"/>
   </div>

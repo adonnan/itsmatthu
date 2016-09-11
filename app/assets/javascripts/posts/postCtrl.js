@@ -7,11 +7,34 @@ angular.module('itsmatthu')
   '$mdDialog',
   'posts',
   'Auth',
-  function($scope,$stateParams,$state, post, $mdDialog, posts, Auth){
+  '$mdToast',
+  '$rootScope',
+  'categoryFactory',
+  function(
+    $scope,
+    $stateParams,
+    $state,
+    post,
+    $mdDialog,
+    posts,
+    Auth,
+    $mdToast,
+    $rootScope,
+    categoryFactory){
+    $rootScope.$on('s',function(event,data){
+      $mdToast.show(
+        $mdToast.simple()
+        .textContent('Logged In Successfully')
+        .position('top right')
+        .hideDelay(3000)
+        .parent(angular.element('#popupContainer'))
+      );
+    });
     $scope.isLoggedin = Auth.isAuthenticated;
     $scope.id = $stateParams.id;
     $scope.title = post.title;
-    $scope.category = post.category;
+    $scope.category = categoryFactory.get(post.category);
+    // $scope.category = post.category;
     $scope.time = post.created_at;
     $scope.tags = post.tags==null ? [] : post.tags.split(',');
     $scope.ref = post.link;
@@ -37,6 +60,12 @@ angular.module('itsmatthu')
           },function(error){
         });;
       }, function(){});
+    };
+    $scope.isOpen = false;
+    $scope.demo = {
+      isOpen: false,
+      count: 0,
+      selectedDirection: 'left'
     };
   }
 ]);

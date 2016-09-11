@@ -1,27 +1,6 @@
-<!-- <div class="collapse navbar-collapse pull-right" ng-controller="NavCtrl">
-  <ul class="nav navbar-nav">
-    <li><a href="#/home">Home</a></li>
-    <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
-    <li ng-hide="signedIn()"><a href="#/register">Register</a></li>
-    <li ng-show="signedIn()"><a href="#/">{{ user.username }}</a></li>
-    <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
-  </ul>
-</div> -->
-<style>
-  .nav-tab {
-    margin: 0;
-    min-width: 60px;
-    text-transform: capitalize;
-  }
-  .nav-logo-text {
-    font-size: 1.5em;
-    font-family: "Lobster"
-  }
-</style>
 <div class="md-toolbar-tools" ng-controller="NavCtrl">
     <md-button class="md-icon-button" aria-label="Icon">
       <i class="material-icons">brightness_high</i>
-      <!-- <img src="planet.ico" width="20" height="20"/> -->
     </md-button>
     <h2>
       <span class="nav-logo-text">Itsmatthu</span>
@@ -34,18 +13,9 @@
       <md-button class="md-primary nav-tab">
         <a href="#/blog">Blog</a>
       </md-button>
-      <!-- <md-button class="md-primary nav-tab">
-        <a href="#/photo">Photo</a>
-      </md-button>
       <md-button class="md-primary nav-tab">
         <a href="#/lab">Lab</a>
       </md-button>
-      <md-button class="md-primary nav-tab">
-        <a href="#/about">About</a>
-      </md-button>
-      <md-button class="md-primary nav-tab">
-        <a href="#/history">History</a>
-      </md-button> -->
     </ul>
     <md-button class="md-icon-button" aria-label="User" ng-hide="signedIn()" ng-click="login()">
       <md-tooltip>Sign in</md-tooltip>

@@ -16,58 +16,8 @@
  *= require_tree .
  *= require_self
  */
+ @import 'variables';
+ @import 'global';
 
-@font-face {
-  font-family: "Arkifakt";
-  src: url('/assets/Artifakt Legend Regular.ttf');
-}
-
-@font-face {
-  font-family: "Lobster";
-  src: url('/assets/Lobster-Regular.ttf');
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: url('/assets/Roboto-Regular.ttf');
-}
-
-@font-face {
-  font-family: "Roboto Mono";
-  src: url('/assets/RobotoMono-Regular.ttf');
-}
-
-@font-face {
-  font-family: "Roboto Slab";
-  src: url('/assets/RobotoSlab-Regular.ttf');
-}
-
-@font-face {
-  font-family: "Noto Sans";
-  src: url('/assets/NotoSans-Regular.ttf');
-}
-
-@font-face {
-  font-family: "Noto Serif";
-  src: url('/assets/NotoSerif-Regular.ttf');
-}
-
-.post-context {
-  pre {
-    border: 0;
-    border-left: solid 3px #ccc;
-    border-radius: 0;
-  }
-
-  p {
-    code {
-      font-size: 1.4rem;
-      color: rgb(63, 81, 181);
-    }
-  }
-
-  blockquote {
-    font-size: 1.6rem;
-    border-left: solid 3px rgb(63, 81, 181);
-  }
-}
+ @import 'pages/nav';
+ @import 'pages/post';

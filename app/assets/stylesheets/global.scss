@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Arkifakt";
+  src: url('/assets/Artifakt Legend Regular.ttf');
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url('/assets/Lobster-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url('/assets/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url('/assets/RobotoMono-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url('/assets/RobotoSlab-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: url('/assets/NotoSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  src: url('/assets/NotoSerif-Regular.ttf');
+}
+
+body {
+  font-family: 'Arkifakt';
+  height: 100%;
+}
