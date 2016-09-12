@@ -33,8 +33,8 @@ angular.module('itsmatthu')
     $scope.isLoggedin = Auth.isAuthenticated;
     $scope.id = $stateParams.id;
     $scope.title = post.title;
-    $scope.category = categoryFactory.get(post.category);
-    // $scope.category = post.category;
+    // $scope.category = categoryFactory.get(post.category);
+    $scope.category = post.category;
     $scope.time = post.created_at;
     $scope.tags = post.tags==null ? [] : post.tags.split(',');
     $scope.ref = post.link;
