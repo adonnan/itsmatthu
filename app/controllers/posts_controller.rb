@@ -37,9 +37,22 @@ class PostsController < ApplicationController
     respond_with post
   end
 
+  def cse_validator
+    algorithm = request.headers['x-ads-cse-plug-algorithm']
+    data = request.headers['x-ads-cse-plug-nonce']
+    plug_hash = request.headers['x-ads-cse-plug-hash']
+    digest = OpenSSL::Digest.new(algorithm)
+    puts '--->'
+    puts "algorithm: #{algorithm}"
+    puts "nonce: #{data}"
+    puts "hash: #{plug_hash}"
+    puts '<---'
+  end
+
   def hq_cse_tester
-    puts '------headers-------'
-    puts request.headers.inspect
+    cse_validator
+    # puts '------headers-------'
+    # puts request.headers.inspect
     # puts '-----header-end-----'
     # puts "#1",request.inspect
     payload = request.body.read
