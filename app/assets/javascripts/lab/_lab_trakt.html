@@ -1,0 +1,47 @@
+<style>
+.show-info {
+  margin-left: 10px;
+}
+.spinner {
+  text-align: center;
+}
+</style>
+<md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
+<div class="spinner" ng-show="spinner">
+  <md-progress-circular md-mode="indeterminate" md-diameter="150" style="display: inline-block"></md-progress-circular>
+</div>
+<div layout="row">
+  <div flex="0" flex-gt-sm="25">
+    <div ng-show="!spinner">
+      <md-card>
+        <img src="http://s.cn.bing.net/az/hprichbg/rb/Stadsbiblioteket_ZH-CN6055045711_1920x1080.jpg" />
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Trakt Integration</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+  <div flex="0" flex-gt-sm="10"></div>
+  <div flex>
+    <md-content>
+      <md-list flex>
+        <md-list-item ng-repeat="myshow in myshows.data" ng-click="showDetail($event, myshow.show.ids.slug)">
+          <img height="60px" width="80px" id="img_{{myshow.show.ids.slug}}" />
+          <div class="md-list-item-text show-info" layout="column">
+            <div><h4>{{myshow.show.title}}</h4></div>
+            <div><h6>{{myshow.last_watched_at | date}}</h6></div>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+  <div flex="0" flex-gt-sm="15"></div>
+</div>

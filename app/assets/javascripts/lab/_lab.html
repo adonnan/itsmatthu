@@ -7,7 +7,7 @@
 }
 .experiment-card:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 2px #888888;
+  box-shadow: 0px 0px 5px #888888;
 }
 .experiment-card-image {
   height: 117px;
@@ -24,7 +24,7 @@
 .lab-divider {
   height: 3px;
   width: 100%;
-  background-color: rgb(63, 81, 181);
+  background-color: #0277bd;;
 }
 </style>
 <md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
@@ -38,12 +38,12 @@
       <div class="lab-divider"></div>
     </div>
     <div layout-gt-sm="row">
-      <div class="experiment-card">
+      <div class="experiment-card" ng-click="goToTrakt()">
         <div class="experiment-card-image">
           <img width="100%" height="100%" src="http://s.cn.bing.net/az/hprichbg/rb/RedSeaWhip_ZH-CN9478576547_1920x1080.jpg"/>
         </div>
         <div class="lab-text">
-          RedSeaWhip
+          Trakt Integration
         </div>
       </div>
       <div class="experiment-card">

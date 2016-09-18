@@ -2,8 +2,6 @@ require 'cse_ruby_sdk'
 class PostsController < ApplicationController
   # before_filter :authenticate_user!, only: [:create, :update, :upvote, :destroy]
   # before_action :authenticate_admin!, only: [:create, :update, :destroy]
-  # @@events = ''
-  # @@header = ''
 
   def index
     respond_with Post.all.order created_at: :desc
@@ -38,19 +36,17 @@ class PostsController < ApplicationController
   end
 
   def cse_validator
+    secret = @pusher.plug.secret
     algorithm = request.headers['x-ads-cse-plug-algorithm']
-    data = request.headers['x-ads-cse-plug-nonce']
+    plug_nonce = request.headers['x-ads-cse-plug-nonce']
     plug_hash = request.headers['x-ads-cse-plug-hash']
+
     digest = OpenSSL::Digest.new(algorithm)
-    puts '--->'
-    puts "algorithm: #{algorithm}"
-    puts "nonce: #{data}"
-    puts "hash: #{plug_hash}"
-    puts '<---'
+    return OpenSSL::HMAC.hexdigest(digest, secret, plug_nonce) == plug_hash
   end
 
   def hq_cse_tester
-    cse_validator
+    # cse_validator
     # puts '------headers-------'
     # puts request.headers.inspect
     # puts '-----header-end-----'

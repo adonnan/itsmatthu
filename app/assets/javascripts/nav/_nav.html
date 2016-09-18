@@ -1,4 +1,4 @@
-<div class="md-toolbar-tools" ng-controller="NavCtrl">
+<div class="md-toolbar-tools mh-toolbars" ng-controller="NavCtrl" style="background-color: #0277bd;">
     <md-button class="md-icon-button" aria-label="Icon">
       <i class="material-icons">brightness_high</i>
     </md-button>
@@ -16,10 +16,18 @@
       <md-button class="md-primary nav-tab">
         <a href="#/lab">Lab</a>
       </md-button>
+      <md-button class="md-primary nav-tab">
+        <a href="#/about">About</a>
+      </md-button>
     </ul>
-    <md-button class="md-icon-button" aria-label="User" ng-hide="signedIn()" ng-click="login()">
+    <!-- <md-button class="md-icon-button" aria-label="User" ng-hide="signedIn()" ng-click="login()">
       <md-tooltip>Sign in</md-tooltip>
       <i class="material-icons">account_circle</i>
+    </md-button> -->
+
+    <md-button class="md-icon-button">
+      <md-tooltip>Language</md-tooltip>
+      <i class="material-icons">language</i>
     </md-button>
 
     <md-menu ng-show="signedIn()">

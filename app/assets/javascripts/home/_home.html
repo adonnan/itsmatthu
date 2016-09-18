@@ -1,6 +1,6 @@
 <style>
 .main-content {
-  background-color: #fff;
+  background-color: #f4f4f4;
   width: 100%;
   height: 100%;
 }
@@ -39,7 +39,7 @@
   font-family: "Roboto Slab", serif;
 }
 .my-name {
-  color: rgb(63,81,181);
+  color: #0277bd;
   font-weight: bold;
 }
 .name-link {
@@ -74,6 +74,117 @@
 @-moz-keyframes fall {
 	to {margin-top:900px;}
 }
+
+.gradient-pattern {
+background: linear-gradient(135deg, #00b0ff 0%,#80d8ff 27%,#40c4ff 80%,#80d8ff 100%);
+animation: sunshine 3s linear infinite;
+}
+
+@keyframes sunshine {
+  0% {
+    background: linear-gradient(135deg, #00b0ff 0%,#80d8ff 27%,#40c4ff 80%,#80d8ff 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #00b0ff 0%,#80d8ff 20%,#40c4ff 65%,#80d8ff 89%, #00b0ff 100%);
+  }
+  100% {
+    background: linear-gradient(135deg, #00b0ff 0%,#80d8ff 27%,#40c4ff 80%,#80d8ff 100%);
+  }
+}
+
+.circle-container {
+	position: relative;
+	perspective: 1000;
+	margin: 0 auto;
+}
+
+.circle-container:hover .circle {
+	transform: rotate3d(45, 45, 0, 180deg);
+}
+
+.circle-container:hover .outer-ring {
+	transform: rotate3d(45, 0, 0, 180deg);
+}
+
+.circle-container:hover .outer-outer-ring {
+	transform: rotate3d(0, 45, 0, 180deg) 1s infinite;
+}
+
+.circle-container, .front, .back {
+	width: 175px;
+	height: 175px;
+	background-color: rgba(0,0,0,0);
+}
+
+.circle, .outer-ring, .outer-outer-ring {
+	transition: 0.5s;
+	transform-style: preserve-3d;
+	transition-timing-function: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+.circle {
+	position: relative;
+	width: 175px;
+	height: 175px;
+}
+
+.front, .back {
+	border-radius: 50%;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
+	background-color: #fff;
+	z-index: 2;
+}
+
+.front p {
+	margin-top: 1.2em;
+	font-family: cabin, sans-serif;
+	font-weight: 700;
+	font-size: 3em;
+	text-align: center;
+	color: #c02227;
+}
+
+.back {
+	transform: rotate3d(45,45,0,180deg);
+	background-color: #fff;
+}
+
+.back-logo {
+	width: 60%;
+	display: block;
+	margin: 2em auto;
+}
+
+.outer-ring {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	width: 191px;
+	height: 191px;
+	background-color: rgba(255,255,255,0);
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+}
+
+.outer-outer-ring {
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	width: 211px;
+	height: 211px;
+	background-color: rgba(255,255,255,0);
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+}
 </style>
 <script>
   // number of drops created.
@@ -103,6 +214,20 @@
 <div class="main-content">
   <md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
   <!-- <section class="rain"></section> -->
+  <!-- <div style="position:absolute;top:100px;left:1150px;width:30px;height:60px;background-color:#eaeaea;"></div>
+  <div style="position:absolute;top:120px;left:100px;width:30px;height:60px;background-color:#efefef;"></div>
+  <div style="position:absolute;top:500px;left:75px;width:30px;height:60px;background-color:#efefe;"></div>
+  <div style="position:absolute;top:350px;left:130px;width:30px;height:60px;background-color:#ebebeb;"></div>
+  <div style="position:absolute;top:110px;left:190px;width:30px;height:60px;background-color:#ececec;"></div>
+  <div style="position:absolute;top:170px;left:900px;width:30px;height:60px;background-color:#efefef;"></div>
+  <div style="position:absolute;top:150px;left:90px;width:30px;height:60px;background-color:#eaeaea;"></div>
+  <div style="position:absolute;top:330px;left:1250px;width:30px;height:60px;background-color:#efefef;"></div>
+  <div style="position:absolute;top:460px;left:1000px;width:30px;height:60px;background-color:#eaeaea;"></div>
+  <div style="position:absolute;top:200px;left:1100px;width:30px;height:60px;background-color:#ececec;"></div>
+  <div style="position:absolute;top:400px;left:1300px;width:30px;height:60px;background-color:#eaeaea;"></div>
+  <div style="position:absolute;top:480px;left:230px;width:30px;height:60px;background-color:#efefef;"></div>
+  <div style="position:absolute;top:420px;left:580px;width:30px;height:60px;background-color:#efefef;"></div>
+  <div style="position:absolute;top:85px;left:450px;width:30px;height:60px;background-color:#eaeaea;"></div> -->
   <div class="image-frame">
     <img src="/profile.png" alt="oops! No image" class="round-selfie"/>
   </div>

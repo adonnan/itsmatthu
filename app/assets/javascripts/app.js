@@ -59,6 +59,16 @@ app.config([
         templateUrl: 'lab/_lab.html',
         controller: 'LabCtrl'
       })
+      .state('lab_trakt', {
+        url: '/lab/trakt',
+        templateUrl: 'lab/_lab_trakt.html',
+        controller: 'LabTraktCtrl'
+        // resolve: {
+        //   myshows: ['trakt', function(trakt){
+        //     return trakt.getMyShows();
+        //   }]
+        // }
+      })
       .state('about', {
         url: '/about',
         templateUrl: 'knowledge/_knowledge.html',
