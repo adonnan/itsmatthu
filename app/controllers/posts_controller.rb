@@ -1,4 +1,3 @@
-require 'cse_ruby_sdk'
 class PostsController < ApplicationController
   # before_filter :authenticate_user!, only: [:create, :update, :upvote, :destroy]
   # before_action :authenticate_admin!, only: [:create, :update, :destroy]

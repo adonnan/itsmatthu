@@ -78,6 +78,8 @@ gem 'material_icons'
 
 gem 'dotenv-rails'
 
-source 'https://artifactory.adskengineer.net/artifactory/api/gems/bim360/' do
-  gem 'cse_ruby_sdk', '2.2.12'
-end
+gem 'rest-client'
+
+# source 'https://artifactory.adskengineer.net/artifactory/api/gems/bim360/' do
+#   gem 'cse_ruby_sdk', '2.2.12'
+# end

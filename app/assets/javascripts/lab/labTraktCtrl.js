@@ -3,6 +3,8 @@ angular.module('itsmatthu')
 ['$scope','trakt','$http', '$mdDialog',
 function($scope, trakt, $http, $mdDialog){
   $scope.spinner = true;
+  $scope.images = {}
+  $scope.infos = {}
   $http.get('/trakt/shows').then(function(data){
     $scope.myshows = data;
     $scope.spinner = false;
@@ -10,12 +12,14 @@ function($scope, trakt, $http, $mdDialog){
   });
 
   var setImage = function() {
-    // debugger;
-    // var a = $('#img_game-of-thrones');
-    // if(a){
-    //   console.log(a);
-    //   $('#img_game-of-thrones')[0].setAttribute('src', 'http://s.cn.bing.net/az/hprichbg/rb/PhnomKulenNP_ZH-CN10975081651_1920x1080.jpg');
-    // }
+    angular.forEach($scope.myshows.data,function(show){
+      $http.get('/trakt/show/'+show.show.ids.trakt+'?extended=images').then(function(resp){
+        $scope.images[show.show.ids.trakt] = resp.data.images.fanart.full;
+      });
+      $http.get('/trakt/show/'+show.show.ids.trakt+'?extended=full').then(function(resp){
+        $scope.infos[show.show.ids.trakt] = resp.data
+      });
+    });
   }
 
   // angular.forEach($scope.myshows, function(show){

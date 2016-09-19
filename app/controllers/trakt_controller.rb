@@ -1,32 +1,38 @@
 class TraktController < ApplicationController
   def authenticate
-    auth_endpoint = "https://api.trakt.tv/oauth/authorize"
-    client_id = "43927bb1ce06ad8fc60f3b2d8ae666e74358895313952d548d0511725454acf7"
-    redirect_uri = URI.encode 'http://localhost:3000/trakt/code'
+    auth_endpoint = "#{ENV['TRAKT_API_ENDPOINT']}/oauth/authorize"
+    client_id = ENV['TRAKT_CLIENT_ID']
+    redirect_uri = URI.encode("#{ENV['TRAKT_REDIRECT_URI']}")
     auth_uri = "#{auth_endpoint}?response_type=code&client_id=#{client_id}&redirect_uri=#{redirect_uri}"
     redirect_to auth_uri
   end
 
+  # trakt sign-in callback
   def code
     @code = params[:code]
     token_info = token(@code)
-    cookies[:token] = {value: JSON.parse(token_info)['access_token'], expires: 10.hour.from_now}
-    render plain: token_info
+    cookies[:token] = {
+      value: JSON.parse(token_info)['access_token'],
+      expires: 3.months.from_now
+    }
+    redirect_to '/#/lab/trakt'
   end
 
   def token(code)
-    token_endpoint = 'https://api.trakt.tv/oauth/token'
-    client_id = '43927bb1ce06ad8fc60f3b2d8ae666e74358895313952d548d0511725454acf7'
-    client_secret = '8dbf45ee6e81d290d0ffc261a240815f398a3fa74b41e9ec80cc3cecaa5c26ea'
+    token_endpoint = "#{ENV['TRAKT_API_ENDPOINT']}/oauth/token"
     payload = {
       code: code,
-      client_id: client_id,
-      client_secret: client_secret,
-      redirect_uri: URI.encode('http://localhost:3000/trakt/code'),
+      client_id: ENV['TRAKT_CLIENT_ID'],
+      client_secret: ENV['TRAKT_CLIENT_SECRET'],
+      redirect_uri: URI.encode("#{ENV['TRAKT_REDIRECT_URI']}"),
       grant_type: 'authorization_code'
     }.to_json
-    resp = RestClient.post token_endpoint, payload,{content_type: 'application/json'}
-    return resp
+    begin
+      resp = RestClient.post token_endpoint, payload,{content_type: 'application/json'}
+      return resp
+    rescue e
+      redirect_to '/authenticate'
+    end
   end
 
   def shows
@@ -35,14 +41,14 @@ class TraktController < ApplicationController
   end
 
   def get_shows
-    puts 'start---->'
     mh_header = {
-      'trakt-api-version': 2,
       content_type: 'application/json',
-      'trakt-api-key': '43927bb1ce06ad8fc60f3b2d8ae666e74358895313952d548d0511725454acf7',
-      'Authorization': "Bearer #{cookies[:token]}"
+      'trakt-api-version': 2,
+      'trakt-api-key': ENV['TRAKT_CLIENT_ID']
     }
-    user_endpoint = 'https://api.trakt.tv/users/me/watched/shows'
+    mh_header.merge! 'Authorization': "Bearer #{cookies[:token]}" if cookies[:token].present?
+    user_id = cookies[:token].nil? ? 'itsmatthu' : 'me'
+    user_endpoint = "#{ENV['TRAKT_API_ENDPOINT']}/users/#{user_id}/watched/shows"
     resp = RestClient.get user_endpoint, mh_header
     shows = JSON.parse(resp)
     return shows
@@ -58,9 +64,9 @@ class TraktController < ApplicationController
     mh_header = {
       content_type: 'application/json',
       'trakt-api-version': 2,
-      'trakt-api-key': '43927bb1ce06ad8fc60f3b2d8ae666e74358895313952d548d0511725454acf7'
+      'trakt-api-key': ENV['TRAKT_CLIENT_ID']
     }
-    show_index_endpoint = "https://api.trakt.tv/shows/#{id}#{extended}"
+    show_index_endpoint = "#{ENV['TRAKT_API_ENDPOINT']}/shows/#{id}#{extended}"
     resp = RestClient.get show_index_endpoint, mh_header
     return resp
   end

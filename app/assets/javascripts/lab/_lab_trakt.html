@@ -22,8 +22,8 @@
         </md-card-title>
         <md-card-content>
           <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+            Trakt is an amazing web to track all your favourate movies and tv shows.
+            In this experiment, it will display your watch list if you<a href="/trakt/authenticate">sign in</a>.
           </p>
         </md-card-content>
       </md-card>
@@ -32,13 +32,16 @@
   <div flex="0" flex-gt-sm="10"></div>
   <div flex>
     <md-content>
+      {{images.length}}
       <md-list flex>
         <md-list-item ng-repeat="myshow in myshows.data" ng-click="showDetail($event, myshow.show.ids.slug)">
-          <img height="60px" width="80px" id="img_{{myshow.show.ids.slug}}" />
+          <img height="56px" width="100px" ng-src="{{images[myshow.show.ids.trakt]}}" />
           <div class="md-list-item-text show-info" layout="column">
             <div><h4>{{myshow.show.title}}</h4></div>
             <div><h6>{{myshow.last_watched_at | date}}</h6></div>
           </div>
+          <span>{{myshow.show.ids.trakt}}</span>
+          <div style="float: right">{{infos[myshow.show.ids.trakt].status}}</div>
         </md-list-item>
       </md-list>
     </md-content>
