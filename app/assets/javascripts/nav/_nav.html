@@ -20,15 +20,33 @@
         <a href="#/about">About</a>
       </md-button>
     </ul>
-    <!-- <md-button class="md-icon-button" aria-label="User" ng-hide="signedIn()" ng-click="login()">
-      <md-tooltip>Sign in</md-tooltip>
-      <i class="material-icons">account_circle</i>
-    </md-button> -->
 
-    <md-button class="md-icon-button">
-      <md-tooltip>Language</md-tooltip>
-      <i class="material-icons">language</i>
-    </md-button>
+    <md-menu>
+      <md-button class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+        <md-tooltip>Language</md-tooltip>
+        <i class="material-icons">language</i>
+      </md-button>
+      <md-menu-content>
+        <md-menu-item>
+          <md-button disabled="disabled">
+            <i class="material-icons">face</i>
+            English
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ng-click="">
+            <i class="material-icons" md-menu-align-target>power_setting_new</i>
+            中文
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ng-click="">
+            <i class="material-icons" md-menu-align-target>power_setting_new</i>
+            Deutsch
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
 
     <md-menu ng-show="signedIn()">
       <md-button class="md-icon-button" aria-label="User" accesskey="" ng-click="openMenu($mdOpenMenu, $event)">

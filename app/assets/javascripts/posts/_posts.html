@@ -2,7 +2,7 @@
 .list-item-tag {
   height: 20px;
   margin-right: 5px;
-  background-color: #ddd;
+  background-color: #efefef;
   line-height: 10px;
   text-align: center;
   padding: 4px 10px;
@@ -18,7 +18,7 @@
           <div class="list-item-category">{{post.category}}</div>
           <div class="list-item-title">{{post.title}}</div>
           <div style="font-size:12px;line-height:25px;">{{post.content | limitTo: 210}}...</div>
-          <div layout="row" style="margin-top:5px;">
+          <div layout="row" style="margin-top:5px;padding-top:5px;">
             <div ng-repeat="tag in post.tags.split(',') track by $index" class="list-item-tag">
               {{tag}}
             </div>
