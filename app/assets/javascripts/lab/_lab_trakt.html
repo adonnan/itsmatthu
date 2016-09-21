@@ -14,7 +14,7 @@
   <div flex="0" flex-gt-sm="25">
     <div ng-show="!spinner">
       <md-card>
-        <img src="http://s.cn.bing.net/az/hprichbg/rb/Stadsbiblioteket_ZH-CN6055045711_1920x1080.jpg" />
+        <img src="/trakt2.png" />
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">Trakt Integration</span>
@@ -23,7 +23,7 @@
         <md-card-content>
           <p>
             Trakt is an amazing web to track all your favourate movies and tv shows.
-            In this experiment, it will display your watch list if you<a href="/trakt/authenticate">sign in</a>.
+            In this experiment, it will display your watch list if you <a href="#/trakt/authenticate">sign in</a>.
           </p>
         </md-card-content>
       </md-card>
@@ -35,13 +35,12 @@
       {{images.length}}
       <md-list flex>
         <md-list-item ng-repeat="myshow in myshows.data" ng-click="showDetail($event, myshow.show.ids.slug)">
-          <img height="56px" width="100px" ng-src="{{images[myshow.show.ids.trakt]}}" />
+          <!-- <img height="56px" width="100px" ng-src="{{images[myshow.show.ids.trakt]}}" /> -->
           <div class="md-list-item-text show-info" layout="column">
             <div><h4>{{myshow.show.title}}</h4></div>
             <div><h6>{{myshow.last_watched_at | date}}</h6></div>
           </div>
-          <span>{{myshow.show.ids.trakt}}</span>
-          <div style="float: right">{{infos[myshow.show.ids.trakt].status}}</div>
+          <md-divider ng-if="!$last"></md-divider>
         </md-list-item>
       </md-list>
     </md-content>

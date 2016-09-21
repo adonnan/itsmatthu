@@ -1,3 +1,13 @@
+<style>
+.list-item-tag {
+  height: 20px;
+  margin-right: 5px;
+  background-color: #ddd;
+  line-height: 10px;
+  text-align: center;
+  padding: 4px 10px;
+}
+</style>
 <md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
 <div layout="row" class="list-content">
   <div flex="0" flex-gt-sm="25"></div>
@@ -7,8 +17,9 @@
         <div class="md-list-item-text">
           <div class="list-item-category">{{post.category}}</div>
           <div class="list-item-title">{{post.title}}</div>
-          <div layout="row">
-            <div ng-repeat="tag in post.tags track by $index" class="list-item-tag">
+          <div style="font-size:12px;line-height:25px;">{{post.content | limitTo: 210}}...</div>
+          <div layout="row" style="margin-top:5px;">
+            <div ng-repeat="tag in post.tags.split(',') track by $index" class="list-item-tag">
               {{tag}}
             </div>
             <div flex></div>

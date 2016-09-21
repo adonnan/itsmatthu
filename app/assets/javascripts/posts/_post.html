@@ -1,4 +1,4 @@
-<md-toolbar class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
+<md-toolbar md-scroll-shrink class="md-primary md-whiteframe-z1" ng-include="'nav/_nav.html'"></md-toolbar>
 <div layout="row" class="post-content" id="popupContainer">
   <div flex="0" flex-gt-sm="25" layout="row" layout-align="center start"></div>
 
@@ -21,7 +21,7 @@
         {{tag}}
       </div>
       <div flex></div>
-      <div>{{category}}</div>
+      <div class="post-category">{{category}}</div>
     </div>
     <div btf-markdown="content" class="post-context" id="post-markdown"></div>
     <div layout="row" ng-if="ref">

@@ -13,20 +13,14 @@ function($scope, trakt, $http, $mdDialog){
 
   var setImage = function() {
     angular.forEach($scope.myshows.data,function(show){
-      $http.get('/trakt/show/'+show.show.ids.trakt+'?extended=images').then(function(resp){
-        $scope.images[show.show.ids.trakt] = resp.data.images.fanart.full;
-      });
-      $http.get('/trakt/show/'+show.show.ids.trakt+'?extended=full').then(function(resp){
-        $scope.infos[show.show.ids.trakt] = resp.data
-      });
+      // $http.get('/trakt/show/'+show.show.ids.trakt+'?extended=images').then(function(resp){
+      //   $scope.images[show.show.ids.trakt] = resp.data.images.fanart.full;
+      // });
+      // $http.get('/trakt/show/'+show.show.ids.trakt+'?extended=full').then(function(resp){
+      //   $scope.infos[show.show.ids.trakt] = resp.data
+      // });
     });
   }
-
-  // angular.forEach($scope.myshows, function(show){
-  //   $http.get('/trakt/show/game-of-thrones?extented=images').then(function(data){
-  //     angular.element('img_game-of-thrones')
-  //   });
-  // })
 
   $scope.showDetail = function(ev, id){
     $mdDialog.show({
