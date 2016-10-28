@@ -4,12 +4,24 @@
   <title>itsmatthu</title>
   <link type="image/x-icon" rel="shortcut icon" href="/planet.ico" />
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <style>
 </style>
-<body ng-app="itsmatthu" ng-controller='MainCtrl'>
-  <ui-view></ui-view>
+<body>
+  <div id="itsmatthu">
+  <h1>Hello App!</h1>
+  <p>
+    <!-- use router-link component for navigation. -->
+    <!-- specify the link by passing the `to` prop. -->
+    <!-- <router-link> will be rendered as an `<a>` tag by default -->
+    <router-link to="/foo">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+  </p>
+  <!-- route outlet -->
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
 </body>
 </html>
+
+<%= javascript_include_tag 'application' %>

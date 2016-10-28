@@ -80,6 +80,8 @@ gem 'dotenv-rails'
 
 gem 'rest-client'
 
+gem 'vuejs-rails'
+
 # source 'https://artifactory.adskengineer.net/artifactory/api/gems/bim360/' do
 #   gem 'cse_ruby_sdk', '2.2.12'
 # end

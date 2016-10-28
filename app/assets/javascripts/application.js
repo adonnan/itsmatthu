@@ -13,14 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require angular
-//= require angular-devise
-//= require angular-rails-templates
-//= require angular-ui-router
-//= require angular-aria
-//= require angular-animate
-//= require angular-material
-//= require angular-sanitize
-//= require showdown
-//= require angular-markdown-directive/markdown
+//= require vue
+//= require vue-router
+//= require vue-resource
 //= require_tree .
